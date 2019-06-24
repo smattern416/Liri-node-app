@@ -9,8 +9,19 @@ var Spotify = require('node-spotify-api');
 var whatToDo = process.argv[2];
 var userInput = process.argv[3];
 
+function spotifyThis(){
+    spotify
+  .search({ type: 'track', query: 'All the Small Things', limit: 5 })
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
+}
+
 // do this switch for each
-switch () {
+switch (whatToDo) {
     case "spotify-this-song":
         spotifyThis()
         break;
