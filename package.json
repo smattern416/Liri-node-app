@@ -1,0 +1,19 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "\"Homework\"",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smattern416/Liri-node-app.git"
+  },
+  "author": "Stephanie Mattern",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smattern416/Liri-node-app/issues"
+  },
+  "homepage": "https://github.com/smattern416/Liri-node-app#readme"
+}
