@@ -9,20 +9,7 @@ var Spotify = require('node-spotify-api');
 var whatToDo = process.argv[2];
 var userInput = process.argv[3];
 
-// add for loop so it allows more than one word items
-
-function spotifyThis(){
-    spotify
-  .search({ type: 'track', query: userInput, limit: 5 })
-  .then(function(response) {
-    console.log(JSON.stringify(response.tracks.items, null, 2));
-  })
-  .catch(function(err) {
-    console.log(err);
-  });
-}
-
-// do this switch for each
+// do switch for each
 switch (whatToDo) {
     case "spotify-this-song":
         spotifyThis()
@@ -39,35 +26,14 @@ switch (whatToDo) {
 
 }
 
-
-function spotifyThisSong(song){
-  spotify.search({ type: 'track', query: song, limit: 1}, function(error, data){
-      if(!error){
-      for(var i = 0; i < data.tracks.items.length; i++){
-          var songData = data.tracks.items[i];
-          console.log("Artist: " + songData.artists[0].name);
-          console.log("Song: " + songData.name);
-          console.log("Preview URL: " + songData.preview_url);
-          console.log("Album: " + songData.album.name);
-          console.log("-----------------------");
-          } 
-      } else {
-      console.log('Error occurred.');
-      }
-  });
-  }
   function spotifyThisSong(song){
     spotify.search({ type: 'track', query: song, limit: 1}, function(error, data){
         if(!error){
         for(var i = 0; i < data.tracks.items.length; i++){
             var songData = data.tracks.items[i];
-                      //artist
             console.log("Artist: " + songData.artists[0].name);
-                      //song name
             console.log("Song: " + songData.name);
-                      //spotify preview link
             console.log("Preview Url: " + songData.preview_url);
-                      //album name
             console.log("Album: " + songData.album.name);
             console.log("-----------------------");
             } 
