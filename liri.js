@@ -45,13 +45,9 @@ function spotifyThisSong(song){
       if(!error){
       for(var i = 0; i < data.tracks.items.length; i++){
           var songData = data.tracks.items[i];
-                    //artist
           console.log("Artist: " + songData.artists[0].name);
-                    //song name
           console.log("Song: " + songData.name);
-                    //spotify preview link
           console.log("Preview URL: " + songData.preview_url);
-                    //album name
           console.log("Album: " + songData.album.name);
           console.log("-----------------------");
           } 
@@ -60,7 +56,26 @@ function spotifyThisSong(song){
       }
   });
   }
-
+  function spotifyThisSong(song){
+    spotify.search({ type: 'track', query: song, limit: 1}, function(error, data){
+        if(!error){
+        for(var i = 0; i < data.tracks.items.length; i++){
+            var songData = data.tracks.items[i];
+                      //artist
+            console.log("Artist: " + songData.artists[0].name);
+                      //song name
+            console.log("Song: " + songData.name);
+                      //spotify preview link
+            console.log("Preview Url: " + songData.preview_url);
+                      //album name
+            console.log("Album: " + songData.album.name);
+            console.log("-----------------------");
+            } 
+        } else {
+        console.log('Error occurred.');
+        }
+    });
+    }
   function omdb(movie){
       var omdbURL = 'http://www.omdbapi.com/?t=' + movie + '&apikey=' + omdbKey + '&plot=short&tomatoes=true';
     
