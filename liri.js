@@ -26,6 +26,8 @@ switch (whatToDo) {
 
 }
 
+// function for bands app
+
   function spotifyThisSong(song){
     spotify.search({ type: 'track', query: song, limit: 1}, function(error, data){
         if(!error){
